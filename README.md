@@ -85,5 +85,5 @@ lib/
 This project is licensed under the MIT License.
 
 ## Contact
-For any queries, contact [your email or GitHub profile link].
+For any queries, contact kshitijdesai179@gmail.com.
 
