@@ -1,16 +1,89 @@
-# next_elect
+# NextElect Frontend
 
-A Blockchain Base Voting App for Secure Voting
+## Overview
+NextElect is a blockchain-based voting system that ensures secure and transparent elections. The **Flutter** frontend communicates with the **NextElect backend API** to facilitate user authentication, election participation, and voting functionalities.
 
-## Getting Started
+## Features
+- **User Authentication**
+  - Login with Aadhaar ID, Birth Date, and Gender.
+  - PIN-based authentication for added security.
 
-This project is a starting point for a Flutter application.
+- **Election Management**
+  - View available elections.
+  - Vote for a candidate.
+  - View election results.
 
-A few resources to get you started if this is your first Flutter project:
+- **Admin Features**
+  - Create new elections.
+  - End elections and view results.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tech Stack
+- **Frontend:** Flutter (Dart)
+- **State Management:** Provider (or Riverpod, if preferred)
+- **API Communication:** HTTP requests to Node.js backend
+- **Storage:** SharedPreferences (for session management)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation & Setup
+### Prerequisites
+Ensure you have the following installed:
+- **Flutter** (latest stable version)
+- **Dart**
+- **Android Studio** or **VS Code** (with Flutter plugin)
+- **NextElect Backend API** (running on `http://localhost:5000`)
+
+### Clone the Repository
+```sh
+git clone https://github.com/yourusername/NextElect-Frontend.git
+cd NextElect-Frontend
+```
+
+### Install Dependencies
+```sh
+flutter pub get
+```
+
+### Configure API Endpoint
+Update the `api_base_url` in the configuration file (e.g., `lib/constants.dart`):
+```dart
+const String apiBaseUrl = "http://localhost:5000/api";
+```
+
+### Run the Application
+```sh
+flutter run
+```
+
+## Folder Structure
+```
+lib/
+│── main.dart             # Entry point of the app
+│── api/                  # API service handlers
+│── models/               # Data models
+│── providers/            # State management
+│── screens/              # UI screens
+│── widgets/              # Reusable components
+│── utils/                # Utility functions
+```
+
+## API Endpoints Used
+| Method | Endpoint | Description |
+|--------|----------|--------------|
+| `POST` | `/api/auth/login` | Authenticate user & issue JWT token |
+| `POST` | `/api/auth/set-pin` | Set user PIN after first login |
+| `GET` | `/api/elections` | Fetch available elections |
+| `POST` | `/api/elections/vote` | Cast a vote for a candidate |
+| `GET` | `/api/admin/results` | View election results (Admin) |
+
+## Contributing
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch`
+3. Commit changes: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature-branch`
+5. Open a Pull Request.
+
+## License
+This project is licensed under the MIT License.
+
+## Contact
+For any queries, contact [your email or GitHub profile link].
+
